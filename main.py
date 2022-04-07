@@ -18,8 +18,9 @@ while True:
     if choice == "report":
         print_report()
         continue
-
     drink = menu.find_drink(choice)
+    if drink is None:
+        continue
     if not coffee_maker.is_resource_sufficient(drink):
         continue
     if not money_machine.make_payment(drink.cost):
